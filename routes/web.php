@@ -22,8 +22,13 @@ Route::get('/productlist', 'App\Http\Controllers\SessionCartController@index')->
 Route::get('/cartlist', 'App\Http\Controllers\SessionCartController@cartList')->name('cartlist');
 Route::post('/session_cart', 'App\Http\Controllers\SessionCartController@addCart')->name('session.cart');
 Route::post('/remove_cart_item', 'App\Http\Controllers\SessionCartController@removeCartItem')->name('remove.cart.item');
-Route::get('/checkout_view', 'App\Http\Controllers\SessionCartController@checkOutView')->name('checkout.view');
+Route::get('/checkout-view', 'App\Http\Controllers\SessionCartController@checkOutView')->name('checkout.view');
+Route::post('/checkout-view', 'App\Http\Controllers\SessionCartController@saveOrderItems')->name('save.order');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/admin-dashboard', [App\Http\Controllers\HomeController::class, 'adminDashboard'])->name('admin.dashboard');

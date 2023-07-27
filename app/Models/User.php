@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'last_name',
+        'phone',
+        'address',
+        'pin_number',
     ];
 
     /**
@@ -41,4 +45,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Undocumented function
+     *
+     * @param integer|null $userId
+     * @return void
+     */
+    public function getLoggedUserDetails(int $userId = null) {
+      return  $this->where('id', $userId)->get();
+    }
 }

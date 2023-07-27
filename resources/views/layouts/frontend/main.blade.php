@@ -274,6 +274,61 @@ $('.remove_cart_item').on('click',function (e) {
         });
 });
 
+$('.remove_cart_item').on('click',function (e) {
+   $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+   var productItem = $(this).data('value');
+   $.ajax({
+            method : 'POST',
+            url  : '{{route("remove.cart.item")}}',
+            data: {
+                'productItem': productItem,
+            },
+            success: function(response) {
+               console.log(response);
+               // alert('added To Cart');
+                // alertify.set('notifier','position','top-right');
+                // alertify.success(response.status);
+            },
+        });
+});
+
+$('.btn-chkout').on('click',function (e) {
+var url = "/checkout-view";
+location.href = url;
+});
+
+$('.save_order').on('click',function (e) {
+   alert('1234');
+   $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+      // $('input[type="radio"]').not(this).prop('checked', false); 
+     var check = $('input[type="radio"]').val();
+     alert(check); 
+   // var productItem = $(this).data('value');
+   // $.ajax({
+   //          method : 'POST',
+   //          url  : '{{route("remove.cart.item")}}',
+   //          data: {
+   //              'productItem': productItem,
+   //          },
+   //          success: function(response) {
+   //             console.log(response);
+   //             // alert('added To Cart');
+   //              // alertify.set('notifier','position','top-right');
+   //              // alertify.success(response.status);
+   //          },
+   //      });
+});
+
+
 </script>
    </body>
 </html>

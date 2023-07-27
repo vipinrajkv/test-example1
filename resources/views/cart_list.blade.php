@@ -71,7 +71,7 @@
                  <hr>
                  <div class="row">
                      <div class="col" style="">TOTAL AMOUNT </div>
-                     <div class="col text-right">₹  @php if (!empty($total)){ echo "$total"; } @endphp</div>
+                     <div class="col text-right">₹  @php if (!empty($total)){ echo $total; } @endphp</div>
                  </div>
                  <form class="f-form">
                      {{-- <p>SHIPPING</p> --}}

@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
+use Auth;
+use App\Models\User;
 
 class SessionCartController extends Controller
 {
+    private $user;
+
+    /**
+     * Undocumented function
+     */
+    public function __construct(
+          User $user
+    )
+    {
+        $this->user = $user ;
+    }
+
     /**
      * Product List Page
      */
@@ -121,12 +135,35 @@ class SessionCartController extends Controller
     }
 
     /**
-     * Undocumented function
+     * To view Checkout page
      *
      * @return void
      */
-    public function checkOutView() {
+    public function checkOutView() { 
         $cartProduct = Session::get('Cart') ?: '';
-        return view('layouts.frontend.check_out', ['productItems' => $cartProduct]);
+        $userData = Auth::user();
+        $userId = $userData->id;
+        $userDetails = $this->user->getLoggedUserDetails($userId);
+
+        return view('layouts.frontend.check_out', 
+        [
+            'productItems' => $cartProduct,
+            'userDetails' => $userDetails,
+        ]);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function saveOrderItems(Request $request) { 
+        $cartProduct = Session::get('Cart') ?: '';
+        $userData = Auth::user();
+        $userId = $userData->id;
+        $userDetails = $this->user->getLoggedUserDetails($userId);
+
+
     }
 }

@@ -28,6 +28,10 @@ Route::post('/save-order', 'App\Http\Controllers\SessionCartController@saveOrder
 Route::get('/admin-dashboard', [App\Http\Controllers\HomeController::class, 'adminDashboard'])->name('admin.dashboard');
 Route::get('/dashboard-preview', [App\Http\Controllers\HomeController::class, 'adminDashboardPreview'])->name('admin.dashboard.preview');
 
+Route::get('admin/{pathMatch}', function(){
+    return view('layouts.backend.adminHome');
+})->where('pathMatch',".*");
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

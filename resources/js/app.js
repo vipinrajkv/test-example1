@@ -5,7 +5,11 @@
  */
 
 import './bootstrap';
-import { createApp } from 'vue';
+import { createApp } from 'vue'
+import router from './router/index'
+import DashBoardMain from './components/DashBoardMain.vue';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,16 +17,21 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
+// const app = createApp({});
+ createApp(DashBoardMain)
+ .use(router)
+ .use(VueSweetalert2)
+ .mount('#app')
+
 
 // import ExampleComponent from './components/ExampleComponent.vue';
 // app.component('example-component', ExampleComponent);
 
-import DashBoardMain from './components/DashBoardMain.vue';
-import AdminNavbar from './components/AdminNavbar.vue';
+// import DashBoardMain from './components/DashBoardMain.vue';
+// import AdminNavbar from './components/AdminNavbar.vue';
 
-app.component('dashboard_main', DashBoardMain);
-app.component('adminnavbar', AdminNavbar);
+// app.component('dashboard_main', DashBoardMain);
+// app.component('adminnavbar', AdminNavbar);
 
 /**
  * The following block of code may be used to automatically register your
@@ -42,4 +51,4 @@ app.component('adminnavbar', AdminNavbar);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+

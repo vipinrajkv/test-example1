@@ -3,7 +3,9 @@
         <AdminNavbar></AdminNavbar>
         <div class="container-fluid main-container">
             <AdminLeftNav></AdminLeftNav>
-            <AdminDashboardMain></AdminDashboardMain>
+            <!-- <AdminDashboardPanel></AdminDashboardPanel> -->
+            <!-- <AdminOrdersListView></AdminOrdersListView> -->
+            <router-view></router-view>
         </div>
         
     </div>
@@ -12,13 +14,20 @@
 <script>
 import AdminNavbar from './AdminNavbar.vue';
 import AdminLeftNav from './AdminLeftNav.vue';
-import AdminDashboardMain from './AdminDashboardMain.vue';
+import AdminDashboardPanel from './AdminDashboardPanel.vue'
+// import AdminOrdersListView from './OrdersListView.vue'
+import { RouterView } from 'vue-router';
+
+
+
     export default {
         components: {
-            AdminNavbar,
-            AdminLeftNav,
-            AdminDashboardMain,
-        },
+    AdminNavbar,
+    AdminLeftNav,
+    AdminDashboardPanel,
+    //      AdminOrdersListView,
+    RouterView
+},
         mounted() {
             console.log('Component mounted.')
         }

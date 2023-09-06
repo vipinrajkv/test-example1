@@ -18,7 +18,7 @@
 </template>
 <style>
 .content  {
-	margin-top: 5px;
+	margin-top: 10px;
 }
 </style>
 <script>

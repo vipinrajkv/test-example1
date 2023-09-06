@@ -126,96 +126,56 @@
 		  {{-- <div class="row"> --}}
 			  <div class=" col-md-10">
 				  <div class="panell">
-					  {{-- <div class="panel-heading"> --}}
-						  {{-- <div class="row">
-							  <div class="col-sm-12 col-xs-12"> --}}
-								  {{-- <a href="#" class="btn btn-sm btn-primary pull-left"><i class="fa fa-plus-circle"></i> Add New</a> --}}
-								  {{-- <form class="form-horizontal pull-right"> --}}
-									  {{-- <div class="form-group">
-										  <label>Show : </label>
-										  <select class="form-control">
-											  <option>5</option>
-											  <option>10</option>
-											  <option>15</option>
-											  <option>20</option>
-										  </select>
-									  </div> --}}
-								  {{-- </form> --}}
-							  {{-- </div>
-						  </div> --}}
-					  {{-- </div> --}}
+					  
 					  <div class="panell-body table-responsive">
 						  <table class="table">
 							  <thead>
 								  <tr>
-									  <th>Action</th>
 									  <th>#</th>
 									  <th>Name</th>
 									  <th>Age</th>
-									  <th>View</th>
+									  <th>Actions</th>
 								  </tr>
 							  </thead>
 							  <tbody>
 								  <tr>
-									  <td>
-										  <ul class="action-list">
-											  <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-											  <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-										  </ul>
-									  </td>
 									  <td>1</td>
 									  <td>Vincent Williamson</td>
 									  <td>31</td>
-									  <td><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></td>
+									  <td>
+										<ul class="action-list">
+											<li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
+											<li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
+											<li><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></li>
+										</ul>
+									  
+									</td>
 								  </tr>
 								  <tr>
-									  <td>
-										  <ul class="action-list">
-											  <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-											  <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-										  </ul>
-									  </td>
 									  <td>2</td>
 									  <td>Taylor Reyes</td>
 									  <td>22</td>
-									  <td><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></td>
+									  <td>
+										<ul class="action-list">
+											<li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
+											<li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
+											<li><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></li>
+										</ul>
+									</td>
 								  </tr>
 								  <tr>
-									  <td>
-										  <ul class="action-list">
-											  <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-											  <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-										  </ul>
-									  </td>
 									  <td>3</td>
 									  <td>Justin Block</td>
 									  <td>26</td>
-									  <td><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></td>
-								  </tr>
-								  <tr>
 									  <td>
-										  <ul class="action-list">
-											  <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-											  <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-										  </ul>
-									  </td>
-									  <td>4</td>
-									  <td>Sean Guzman</td>
-									  <td>26</td>
-									  <td><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></td>
+										<ul class="action-list">
+											<li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
+											<li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
+											<li><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></li>
+										</ul>
+									</td>
 								  </tr>
-								  <tr>
-									  <td>
-										  <ul class="action-list">
-											  <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a></li>
-											  <li><a href="#" class="btn btn-danger"><i class="fa fa-times"></i></a></li>
-										  </ul>
-									  </td>
-									  <td>5</td>
-									  <td>Keith Carter</td>
-									  <td>24</td>
-									  <td><a href="#" class="btn btn-sm btn-success"><i class="fa fa-search"></i></a></td>
-								  </tr>
+								  
 							  </tbody>
 						  </table>
 					  </div>
@@ -243,6 +203,7 @@
 			  </div>
 		  {{-- </div>
 	  </div> --}}
+	  
   		<footer class="pull-left footer">
   			<p class="col-md-12">
   				<hr class="divider">

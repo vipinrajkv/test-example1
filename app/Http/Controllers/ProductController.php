@@ -52,7 +52,7 @@ class ProductController extends Controller
             ], 422);
         } else {
             $img_name = $request->file('image');
-            $image= time().'.'.$img_name->getClientOriginalExtension();
+            $image = time() . '.' . $img_name->getClientOriginalExtension();
             $destinationPath = public_path('/upimages');
             $img_name->move($destinationPath, $image);
             $productData =  [
@@ -60,7 +60,7 @@ class ProductController extends Controller
                 'price' => $request->input('price'),
                 'image' => $image,
             ];
-            
+
             $product =  $this->product->productCreate($productData);
 
             if ($product) {
@@ -99,9 +99,22 @@ class ProductController extends Controller
     {
         $products =  $this->product->getProductList();
 
-        if ($product) {
-            return response()->json(['productsList' =>$products],200);
+        if (!empty($product)) {
+
+            return response()->json([
+                'status' => 200,
+                'productsList' => $products,
+                'message' => 'Product lists found',
+            ], 200);
         }
+
+        return response()->json(
+            [
+                'status' => 400,
+                'message' => 'Product lists not found',
+            ],
+            400
+        );
     }
 
     /**
@@ -113,9 +126,22 @@ class ProductController extends Controller
     public function edit(int $productId)
     {
         $product =  $this->product->getProduct($productId);
+
         if ($product) {
-            return response()->json(['productItems' =>$product],200);
+            return response()->json(
+                [   
+                    'status' => 200,
+                    'productItems' => $product
+            ], 200);
         }
+
+        return response()->json(
+            [
+                'status' => 400,
+                'message' => 'Product Item not found',
+            ],
+            400
+        );
     }
 
     /**
@@ -140,7 +166,7 @@ class ProductController extends Controller
             ], 422);
         } else {
             $img_name = $request->file('image');
-            $image= time().'.'.$img_name->getClientOriginalExtension();
+            $image = time() . '.' . $img_name->getClientOriginalExtension();
             $destinationPath = public_path('/upimages');
             $img_name->move($destinationPath, $image);
             $productData =  [
@@ -183,7 +209,7 @@ class ProductController extends Controller
         } else {
             $product =  $this->product->productDelete($productId);
         }
-      
+
         if ($product) {
             return response()->json([
                 'status' => 200,

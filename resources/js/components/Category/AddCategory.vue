@@ -2,7 +2,7 @@
     <div class="col-md-8 content">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Add Product
+                Add Category
             </div>
             <div class="panel-body">
                 <!-- <ul class="alert alert-warning" v-if="Object.keys(this.errorList).length > 0">
@@ -10,23 +10,19 @@
                        {{ error[0] }}
                     </li>
                 </ul> -->
-                <form ref="productForm">
+                <form ref="categoryForm">
                     <div class="form-group col-md-8">
-                        <label for="usr">Name:</label>
-                        <input type="text" name="name" v-model="model.productData.name" class="form-control" id="usr">
-                        <div v-if="errorList.name" :class="['invalid-feedback']"> {{ errorList.name[0] }}</div>
+                        <label for="usr">Category Name:</label>
+                        <input type="text" name="category_name" v-model="model.categoryData.category_name" class="form-control" id="usr">
+                        <div v-if="errorList.category_name" :class="['invalid-feedback']"> {{ errorList.category_name[0] }}</div>
                     
                     </div>
                     <div class="form-group col-md-8">
-                        <label for="usr">Price:</label>
-                        <input type="text" name="price" v-model="model.productData.image" class="form-control" id="usr">
-                        <div v-if="errorList.price" :class="['invalid-feedback']"> {{ errorList.price[0] }}</div>
+                        <label for="usr">Status:</label>
+                        <input type="checkbox" v-model="model.categoryData.status" true-value="1" false-value="0" id="accept" class="form-check-input">
+                        <div v-if="errorList.status" :class="['invalid-feedback']"> {{ errorList.status[0] }}</div>
                     </div>
-                    <div class="form-group col-md-8">
-                        <label for="usr">Product Image:</label>
-                        <input type="file" id="file" @change="onImageChange" name="image">
-                        <div v-if="errorList.image" :class="['invalid-feedback']"> {{ errorList.image[0] }}</div>
-                    </div>
+
                     <div class="form-group col-md-8">
                         <button type="submit" @click.prevent="submit"> Submit</button>
                     </div>
@@ -46,16 +42,14 @@
 <script>
 import Swal from 'sweetalert2/dist/sweetalert2';
 export default {
-    name: 'Add Product',
+    name: 'Add Category',
     data() {
         return {
-            file: '',
             errorList: '',
             model: {
-                productData: {
-                    name: "",
-                    image: "",
-                    price: "",
+                categoryData: {
+                    category_name: "",
+                    status: "",
                 }
             },
         }
@@ -64,29 +58,19 @@ export default {
         console.log('Component mounted.')
     },
     methods: {
-        onImageChange: function onImageChange(e) {
-            this.file = e.target.files[0]
-            // this.file = this.$refs.file.files[0];
-        },
-        
         submit() {
             let $this = this;
-            let formData = new FormData(this.$refs.productForm);
-            // this.file = this.$refs.file.files[0];
-
-            formData.append("image", this.file);
-            axios.post("/api/add_product", formData, {
-                // header: {
-                //     "Content-Type": "multipart/form-data",
-                // },
+            let formData = new FormData(this.$refs.categoryForm);
+ 
+            axios.post("/api/add-category", formData, {
+                header: {
+                    "Content-Type": "multipart/form-data",
+                },
             })
                 .then(function (response) {
-                    
-                    console.log(response);
-                    $this.model.productData = {
-                        name: '',
-                        image: '',
-                        price: '',
+                    $this.model.categoryData = {
+                        category_name: '',
+                        status: '',
                     }
                     Swal.fire({
                         // position: 'top-end',
